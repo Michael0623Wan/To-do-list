@@ -13,8 +13,9 @@ function AddElement(){
         <span>${Input.value}</span>
         <button onclick="remove()" class="btn btn-outline-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>`;
         List.appendChild(li);
+        Input.value = '';
+        SaveLocal();
     }
-    SaveLocal();
 }
 
 let currentlyEditing = null;
@@ -39,7 +40,7 @@ function ClickHandler(e){
 
         const InputElement = document.createElement('input');
         InputElement.type = 'text';
-        InputElement.className = 'form-control'; 
+        InputElement.className = 'form-control';
         InputElement.maxlength = '30';
         InputElement.value = OriginText;
 
@@ -50,11 +51,12 @@ function ClickHandler(e){
 
         // Handle saving changes
         InputElement.addEventListener('blur', function() {
-            const taskTextSpan = listItem.querySelector('span');
-            taskTextSpan.innerHTML = InputElement.value;
+            const NewText = InputElement.value;
+            Text.innerHTML = NewText;
             Current = null;
-            savelocal();
+            SaveLocal();
         });
+
     }
 }
 
