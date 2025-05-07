@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f4f4f4 ;
+ 
+}
+
+body::before{
+    display: block;
+    content:"";
+    height:100px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+@media (min-width: 700px) {
+    .input-group{
+        width:50%;
+    }
+}

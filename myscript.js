@@ -1,0 +1,59 @@
+const List = document.getElementById("List");
+const Input = document.getElementById("Input");
+let Current = null;
+
+function AddElement(){
+    if (Input.value === '') {
+        alert("Input box cannot be empty")
+    }else{
+        var li = document.createElement("li");
+        li.className = 'list-group-item list-group-item-action d-flex justify-content-between align-items-center text-break';
+        li.innerHTML = 
+        `<button onclick="done()" class="btn btn-outline-warning done-btn"><i class="fa-solid fa-check"></i></button>
+        ${Input.value}
+        <button onclick="remove()" class="btn btn-outline-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>`;
+        List.appendChild(li);
+    }
+    SaveLocal();
+}
+
+let currentlyEditing = null;
+
+List.addEventListener('click', ClickHandler);
+
+function ClickHandler(e){
+    if(e.target.classList.contains('delete-btn')){
+        Remove(e);
+    } else if (e.target.classList.contains('done-btn')){
+        Done(e);
+    } else {
+        Edit(e);
+    }
+}
+
+
+function Done(e){
+    e.target.parentElement.classList.toggle("text-decoration-line-through");
+    e.target.parentElement.classList.toggle("list-group-item-success");
+    SaveLocal();
+}
+
+function Remove(e){
+    e.target.parentElement.remove();
+    SaveLocal();
+}
+
+function Edit(e){
+    const Item = e.target.closest('.list-group-item');
+
+}
+
+function SaveLocal(){
+    localStorage.setItem("data",List.innerHTML);
+}
+
+function LoadData(){
+    List.innerHTML = localStorage.getItem("data");
+}
+
+LoadData();
