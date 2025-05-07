@@ -11,7 +11,7 @@ function AddElement(){
         li.innerHTML = 
         `
         <button onclick="done()" class="btn btn-outline-warning done-btn"><i class="fa-solid fa-check"></i></button>
-        <span contenteditable>${Input.value}</span>
+        <span contenteditable="true">${Input.value}</span>
         <button onclick="remove()" class="btn btn-outline-dark delete-btn"><i class="fa-regular fa-trash-can"></i></button>
         `;
         List.appendChild(li);
@@ -31,7 +31,7 @@ function ClickHandler(e){
     } else if (e.target.classList.contains('done-btn')){
         e.target.parentElement.classList.toggle("text-decoration-line-through");
         e.target.parentElement.classList.toggle("list-group-item-success");
-      
+        
     } 
     SaveLocal();
 }
