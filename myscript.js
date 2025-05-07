@@ -41,7 +41,7 @@ function ClickHandler(e){
         const InputElement = document.createElement('input');
         InputElement.type = 'text';
         InputElement.className = 'form-control';
-        InputElement.maxlength = '30';
+        InputElement.maxLength = '30';
         InputElement.value = OriginText;
 
         // Replace the text with the input field
@@ -56,7 +56,7 @@ function ClickHandler(e){
             Current = null;
             SaveLocal();
         });
-
+        
     }
 }
 
